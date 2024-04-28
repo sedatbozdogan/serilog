@@ -6,8 +6,8 @@ try
     builder.Host.UseSerilog();
 
     Log.Logger = new LoggerConfiguration()
-        .ReadFrom.Configuration(builder.Configuration)
-        .Enrich.FromLogContext()
+        .ReadFrom.Configuration(builder.Configuration)  
+        .Enrich.WithProcessId()
         .CreateLogger();
      
     builder.Services.AddControllers(); 
